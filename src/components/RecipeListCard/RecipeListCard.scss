@@ -1,0 +1,16 @@
+.recipe-list {
+    &__card-container {
+        width: 20rem;
+        background-color: green;
+        margin: 1rem;
+        border-radius: 15px;
+        text-align: center;
+        color: white;
+        text-transform:capitalize;
+        transition: 1.5s;
+
+        &:hover {
+            background-color: orangered;
+        }
+    }
+}

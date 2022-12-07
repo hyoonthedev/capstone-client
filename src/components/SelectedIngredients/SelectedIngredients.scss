@@ -1,0 +1,50 @@
+@use '../../styles/partials/variables' as *;
+
+.ingredient-select {
+
+    &__meat {
+        background-color: #f9906f;
+        padding: 1rem;
+    }
+
+    &__veg {
+        background-color: #96b125;
+        padding: 1rem;
+    }
+
+    &__other {
+        background-color: #fea938;
+        padding: 1rem;
+    }
+
+    &__title {
+        color: $primary-green;
+        font-size: 5rem;
+        font-family: Budidaya;
+        text-transform: uppercase;
+    }
+
+    &__subtitle {
+        color: $primary-green;
+        font-size: 3rem;
+        font-family: Budidaya;
+        text-transform: uppercase;
+    }
+
+    &__button {
+        background-color: $secondary-aqua;
+        color: $primary-green;
+        border: none;
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+        border-radius: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        width: 15rem;
+        transition: 2s;
+
+        &:hover {
+            background-color: salmon;
+        }
+    }
+}

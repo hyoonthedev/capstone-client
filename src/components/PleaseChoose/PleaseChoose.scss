@@ -1,0 +1,30 @@
+@use '../../styles/partials/variables' as *;
+
+.please-choose {
+    display: flex;
+    align-items: center;
+
+    &__chevron {
+        animation-name: bounce-1;
+        animation-timing-function: linear;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        filter: invert(48%) sepia(38%) saturate(505%) hue-rotate(100deg) brightness(90%) contrast(92%);
+    }
+
+    &__body {
+        font-family: Budidaya;
+        text-transform: uppercase;
+        color: $primary-green;
+    }
+}
+
+// animation
+@keyframes bounce-1 {
+    0%   { transform: scaleX(-1) translateX(0px); }
+    50%   { transform: scaleX(-1) translateX(0px); }
+    70%  { transform: scaleX(-1) translateX(10px); }
+    80% { transform: scaleX(-1) translateX(0); }
+    90% { transform: scaleX(-1) translateX(10px); }
+    100% { transform: scaleX(-1) translateX(0); }
+}

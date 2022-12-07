@@ -1,0 +1,41 @@
+@use '../../styles/partials/variables' as *;
+
+.ingredient-list {
+
+    &__other-card {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: space-between;
+    }
+
+    &__other-title {
+        color: $primary-green;
+        font-size: 2rem;
+        font-family: Budidaya;
+    }
+
+    &__other-expiry-red {
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: invert(13%) sepia(76%) saturate(6916%) hue-rotate(0deg) brightness(94%) contrast(117%);
+    }
+
+    &__other-expiry-yellow {
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: invert(94%) sepia(93%) saturate(7500%) hue-rotate(359deg) brightness(104%) contrast(101%);
+    }
+
+    &__other-expiry-green {
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: invert(37%) sepia(14%) saturate(1455%) hue-rotate(89deg) brightness(92%) contrast(82%);
+    }
+
+    &__other-title-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem
+    }
+}

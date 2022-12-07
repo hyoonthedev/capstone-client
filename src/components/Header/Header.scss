@@ -1,18 +1,27 @@
-@use "../../styles/partials/fonts" as *;
+@use '../../styles/partials/variables' as *;
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1rem;
-
 // Logo
-    &__title {
+    &__logo-title {
         font-family: Budidaya;
+        font-size: 1.3rem;
+        color: white;
+        margin-right: 0.3rem;
+        cursor: pointer;
     }
 
     &__logo-img {
         width: 1.3rem;
         height: 1.3rem;
+        filter: $primary-white;
+        cursor: pointer;
+
+    }
+
+    &__logo-container {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        background-color: RGBA(55,110,75,0.9);
     }
 }

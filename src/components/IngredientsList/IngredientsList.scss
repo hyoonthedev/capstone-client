@@ -1,0 +1,39 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.ingredient-list {
+    
+    @include desktop {
+        display: flex;
+    }
+
+    &__meat {
+        background-color: #f9906f;
+        padding: 1rem;
+        min-height: 22rem;
+    }
+
+    &__veg {
+        background-color: #96b125;
+        padding: 1rem;
+    }
+
+    &__other {
+        background-color: #fea938;
+        padding: 1rem;
+    }
+
+    &__title {
+        color: $primary-green;
+        font-size: 5rem;
+        font-family: Budidaya;
+        text-transform: uppercase;
+    }
+
+    &__subtitle {
+        color: $primary-green;
+        font-size: 3rem;
+        font-family: Budidaya;
+        text-transform: uppercase;
+    }
+}

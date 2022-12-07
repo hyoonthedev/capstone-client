@@ -1,9 +1,52 @@
-.ingredients-add {
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
+.ingredients {
+    background-image: url('../../assets/Images/Images/background2.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+
+// Main Container (Form, Ingredients List, Selected)
     &__container {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+// Form Container
+    &__add-container {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         align-items: flex-start;
+        background-color: $secondary-green;
+        padding: 2rem;
+        font-family: Budidaya;
+        margin-top: 2rem;
+        max-height: 25rem;
+    }
+
+    &__add-title {
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    &__add-submit {
+        border: none;
+        color: white;
+        background-color: $secondary-lightgreen;
+        border-radius: 15px;
+        padding: 0.5rem 3rem;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        
+        @include tablet {
+            display: flex;
+            gap: 10rem;
+        }
     }
 }

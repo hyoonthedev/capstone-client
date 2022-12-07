@@ -1,0 +1,110 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.landing-page {
+    background-image: url('../../assets/Images/Images/background2.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+
+// Logo
+    &__logo-title {
+        font-family: Budidaya;
+        font-size: 1.3rem;
+        color: white;
+        margin-right: 0.3rem;
+    }
+
+    &__logo-img {
+        width: 1.3rem;
+        height: 1.3rem;
+        filter: $primary-white;
+
+    }
+
+    &__logo-container {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        justify-content: center;
+        background-color: RGBA(55,110,75,0.9);
+    }
+
+// Hero
+    &__hero-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80%;
+    }
+
+    &__hero-text-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @include desktop {
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+
+    &__hero-title {
+        font-size: 3rem;
+        color: $primary-green;
+
+        @include tablet {
+            font-size: 4rem;
+        }
+    }
+
+    &__hero-changing-text {
+        font-family: "Budidaya";
+        font-size: 4rem;
+        color: orangered;
+
+        @include tablet {
+            font-size: 6rem;
+        }
+    }
+
+    &__hero-start {
+        text-transform: uppercase;
+        margin-top: 3rem;
+        padding: 0.5rem 2rem;
+        color: $primary-green;
+        border: 2px solid $primary-green;
+        transition: 1.5s;
+        opacity: 0.8;
+
+        &:hover {
+            padding: 0.5rem 4rem;
+            opacity: 1;
+            color: orangered;
+            border: 2px solid orangered;
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin-top: 1.5rem;
+        }
+    }
+
+    &__hero-signin-container {
+        text-transform: uppercase;
+        margin-top: 0.5rem;
+        color: $primary-green;
+        font-size: 0.6rem;
+    }
+
+    &__hero-signin {
+
+        &:hover {
+            color: orangered;
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+}

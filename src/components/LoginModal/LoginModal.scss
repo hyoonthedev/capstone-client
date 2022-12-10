@@ -1,15 +1,24 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .login-modal {
     position: fixed;
     background-color: white;
     z-index: 10;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%)scale(1);
     padding: 0rem 0rem 2rem 3rem;
-    width: 20rem;
+    width: 100%;
+    height: 100%;
 
+        @include tablet {
+            width: 20rem;
+            top: 40%;
+            height: auto;
+        }
+
+// Overlay
     &__overlay {
         position: fixed;
         transition: 200ms ease-in-out;
@@ -22,6 +31,7 @@
         background-color: rgba(19, 24, 44, 0.7);
     }
 
+// Container
     &__close-container {
         position: aboslute;
         display: flex;
@@ -37,6 +47,7 @@
         margin-right: 3rem;
     }
 
+// Content
     &__title {
         margin: 1rem 0;
     }
@@ -53,6 +64,19 @@
         }
     }
 
+    &__error {
+        color: red;
+    }
+
+    &__hidden {
+        display: none;
+    }
+
+    &__succes {
+        color: green;
+    }
+
+// Button
     &__submit {
         margin: 1rem 0 0;
         border: none;
@@ -67,6 +91,7 @@
         cursor: pointer;
     }
 
+// Small Text to Sign Up
     &__message {
         font-size: 0.5rem;
         margin-top: 0.5rem;

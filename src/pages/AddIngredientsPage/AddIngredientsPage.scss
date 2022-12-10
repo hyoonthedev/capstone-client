@@ -3,11 +3,12 @@
 
 .ingredients {
     background-image: url('../../assets/Images/Images/background2.jpg');
-    background-size: cover;
+    background-size: 100rem;
     background-repeat: repeat;
     width: 100%;
     min-height: 100vh;
     height: 100%;
+    background-position: 10px;
 
 // Main Container (Form, Ingredients List, Selected)
     &__container {
@@ -26,6 +27,7 @@
         font-family: Budidaya;
         margin-top: 2rem;
         max-height: 25rem;
+        border-radius: 20px;
     }
 
     &__add-title {
@@ -42,11 +44,48 @@
         text-transform: uppercase;
     }
 
+    &__add-input-name {
+        background-color: $secondary-green;
+        border: none;
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 0.5rem;
+
+        &::placeholder {
+            color: white;
+        }
+        &:focus {
+            outline: none;
+            border-bottom: 2px solid white;
+        }
+    }
+
     &__list {
         
         @include tablet {
             display: flex;
-            gap: 10rem;
+            justify-content: space-evenly;
+            gap: 3rem;
         }
     }
 }
+
+.cat {
+    width: 6rem;
+    position: fixed;
+    left: 5.5rem;
+    top: 70%;
+    animation: cat-pop 5s infinite linear;
+}
+
+@keyframes cat-pop {
+    0% {padding-top: 20rem}
+    25% {padding-top: 10rem}
+    50% {padding-top: 10rem}
+    75% {padding-top: 10.5rem}
+    76% {padding-top: 10rem}
+    77% {padding-top: 10.5rem}
+    78% {padding-top: 10rem}
+    85% {padding-top: 20rem}
+    100% {padding-top: 20rem}
+}   

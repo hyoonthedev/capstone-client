@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import './RecipeSearchPage.scss'
 
 import RecipeListCard from "../../components/RecipeListCard/RecipeListCard";
+import NoRecipe from "../../components/NoRecipe/NoRecipe";
+import Loading from "../../components/Loading/Loading";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const PORT = process.env.REACT_APP_PORT;
@@ -55,9 +57,15 @@ function RecipeSearchPage() {
 
 // Catch if pantryList not loading
     if(!pantryList) {
-        return "loading"
-    };
-
+        return <Loading/>
+    }
+    if(!recipeList) {
+        return <Loading/>
+    } 
+    if(recipeList.length === 0) {
+        return <NoRecipe />
+        }
+        
     return(
         // recipeList.map
         <section className="recipe-search">

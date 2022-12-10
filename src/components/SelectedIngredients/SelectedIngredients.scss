@@ -32,7 +32,7 @@
     }
 
     &__button {
-        background-color: $secondary-aqua;
+        background-color: khaki;
         color: $primary-green;
         border: none;
         padding: 1rem 2rem;
@@ -41,10 +41,11 @@
         text-transform: uppercase;
         text-align: center;
         width: 15rem;
-        transition: 2s;
+        transition: 1s;
 
         &:hover {
-            background-color: salmon;
+            background-color: skyblue;
+            color: azure;
         }
     }
 }

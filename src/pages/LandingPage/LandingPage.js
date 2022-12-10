@@ -4,8 +4,14 @@ import { useState, useEffect } from 'react';
 import logoSvg from '../../assets/Images/Logo/logo.png';
 import LoginModal from '../../components/LoginModal/LoginModal';
 import SignUpModal from '../../components/SignUpModal/SignUpModal';
+import ProfilePageTest from '../ProfilePageTest';
+import { useNavigate } from 'react-router-dom'
 
 function LandingPage() {
+    
+    const navigate = useNavigate();
+    
+// Landing Page Text Change List
     const wordList = [
         "Robust",
         "Exciting",
@@ -24,6 +30,7 @@ function LandingPage() {
     const [loginOpen, setLoginOpen] = useState(false);
     const [signUpOpen, setSignUpOpen] = useState(false);
     
+// Changes Text
     useEffect(() => {
         if(!describeNameStatus) {
         setInterval(function() {
@@ -49,7 +56,7 @@ function LandingPage() {
                     </div>
                     <div onClick={() => setSignUpOpen(true)} className="landing-page__hero-start">Get Started</div>
                     <p className="landing-page__hero-signin-container">Already have an account? <span onClick={() => setLoginOpen(true)} className="landing-page__hero-signin">Sign In</span></p>
-            </div>
+                </div>
             </section>
             <LoginModal 
             loginOpen={loginOpen}
@@ -59,7 +66,9 @@ function LandingPage() {
             <SignUpModal 
             signUpOpen={signUpOpen}
             setSignUpOpen={setSignUpOpen}
+            setLoginOpen={setLoginOpen}
             />
+            <div onClick={()=>navigate('/ingredients')}>next</div>
         </>
     )
 }

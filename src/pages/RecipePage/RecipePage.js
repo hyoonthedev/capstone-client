@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Header from '../../components/Header/Header';
 import RecipeDetails from '../../components/RecipeDetails/RecipeDetails';
+import Loading from '../../components/Loading/Loading';
 import './RecipePage.scss';
 
 function RecipePage() {
@@ -26,7 +27,7 @@ function RecipePage() {
     },[])
 
     if(!selectedRecipe) {
-        return "loading"
+        return <Loading/>
     }
 
     return(

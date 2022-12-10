@@ -5,6 +5,9 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import IngredientsList from '../../components/IngredientsList/IngredientsList';
 import SelectedIngredients from '../../components/SelectedIngredients/SelectedIngredients';
+import Loading from '../../components/Loading/Loading';
+import popCat from '../../assets/Images/Images/pop-cat.png';
+import ProfilePageTest from '../ProfilePageTest';
 
 const API_URL = process.env.REACT_APP_API_URL;
 const PORT = process.env.REACT_APP_PORT;
@@ -41,10 +44,10 @@ function AddIngredientsPage() {
 
 // Catch if axios still getting info
     if(!ingredientsList) {
-        return "loading"
+        return <Loading/>
     }
     if(!pantryList) {
-        return "loading"
+        return <Loading/>
     }
 
 // Handle Form Submit
@@ -105,7 +108,7 @@ const dateDifference = function(timestamp) {
             <div className="ingredients__container">
                 <form onSubmit={handleFormSubmit} className="ingredients__add-container">
                     <label className="ingredients__add-title">Ingredient Name</label>
-                    <input className="ingredients__add-input-name" type="text" placeholder="Input Ingredient Name"></input>
+                    <input className="ingredients__add-input-name" type="text" placeholder="Enter Ingredient"></input>
                     <label className="ingredients__add-title">Date Purchased</label>
                     <input className="ingredients-add__input-timestamp" type="date" placeholder="YYYY-MM-DD"></input>
                     <label className="ingredients__add-title">Food Category</label>
@@ -135,8 +138,9 @@ const dateDifference = function(timestamp) {
                     />
                 </div>
             </div>
+            <img className="cat" src={popCat} alt="pop cat"/>
+            <ProfilePageTest/>
         </section>
-
     )
 }
 

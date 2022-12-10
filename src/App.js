@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Pages and Components
 import LandingPage from './pages/LandingPage/LandingPage';
-// import HomePage from "./pages/HomePage/HomePage";
 import AddIngredientsPage from './pages/AddIngredientsPage/AddIngredientsPage';
 import RecipeSearchPage from './pages/RecipeSearchPage/RecipeSearchPage';
 import RecipePage from './pages/RecipePage/RecipePage';

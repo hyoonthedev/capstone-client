@@ -13,12 +13,14 @@
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+        justify-content: center;
     }
 
     &__title {
         font-family: Budidaya;
         font-size: 5rem;
         color: $primary-green;
+        text-align: center;
     }
 
     &__span {
@@ -26,5 +28,6 @@
         text-transform: uppercase;
         font-family: Budidaya;
         font-size: 5rem;
+        text-align: center;
     }
 }

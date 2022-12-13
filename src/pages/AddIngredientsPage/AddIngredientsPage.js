@@ -7,12 +7,11 @@ import IngredientsList from '../../components/IngredientsList/IngredientsList';
 import SelectedIngredients from '../../components/SelectedIngredients/SelectedIngredients';
 import Loading from '../../components/Loading/Loading';
 import popCat from '../../assets/Images/Images/pop-cat.png';
-import ProfilePageTest from '../ProfilePageTest';
 
 const API_URL = process.env.REACT_APP_API_URL;
 const PORT = process.env.REACT_APP_PORT;
 
-function AddIngredientsPage() {
+function AddIngredientsPage({ loggedUserId }) {
 
     const [ingredientsList, setIngredientsList] = useState(null);
     const [pantryList, setPantryList] = useState(null);
@@ -21,10 +20,11 @@ function AddIngredientsPage() {
 // GET current ingredients list
     useEffect(() => {
            axios
-            .get(`${API_URL}${PORT}/ingredients`)
+            .get(`${API_URL}${PORT}/ingredients/user/${loggedUserId}`)
             .then((response) => {
                 setIngredientsList(response.data)
                 setSubmitState(false)
+                console.log(`${loggedUserId} in get ingredient`)
             })
             .catch((err) => {
                 console.log(err)
@@ -33,7 +33,7 @@ function AddIngredientsPage() {
 
 // GET current pantry list
     useEffect(() => {
-        axios.get(`${API_URL}${PORT}/pantry`)
+        axios.get(`${API_URL}${PORT}/pantry/user/${loggedUserId}`)
         .then((response) => {
             setPantryList(response.data)
         })
@@ -41,14 +41,6 @@ function AddIngredientsPage() {
             console.log(err)
         })
 }, [submitState])
-
-// Catch if axios still getting info
-    if(!ingredientsList) {
-        return <Loading/>
-    }
-    if(!pantryList) {
-        return <Loading/>
-    }
 
 // Handle Form Submit
     const handleFormSubmit = (event) => {
@@ -58,11 +50,12 @@ function AddIngredientsPage() {
     const newIngredient = {
         ingredient_name: event.target[0].value,
         expiry: event.target[1].value,
-        category: event.target[2].value
+        category: event.target[2].value,
+        user_id: loggedUserId
     };
 
     axios
-        .post(`${API_URL}${PORT}/ingredients`, newIngredient)
+        .post(`${API_URL}${PORT}/ingredients/user/${loggedUserId}`, newIngredient)
         .then((_response) => {
             event.target[0].value = ""
             event.target[1].value = ""
@@ -101,6 +94,11 @@ const dateDifference = function(timestamp) {
         return "red"
     }
 }
+// // Catch if axios still getting info
+    if(!ingredientsList || !loggedUserId || !pantryList) {
+        return <Loading/>
+    }
+
 
     return(
         <section className="ingredients">
@@ -139,7 +137,6 @@ const dateDifference = function(timestamp) {
                 </div>
             </div>
             <img className="cat" src={popCat} alt="pop cat"/>
-            <ProfilePageTest/>
         </section>
     )
 }

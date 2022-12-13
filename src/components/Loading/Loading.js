@@ -6,7 +6,6 @@ function Loading() {
         <section className="loading">
             <h3 className="loading__main-title">Loading...</h3>
             <img className="loading__image"src={loadingGif} alt="chopping carrots"/>
-            <h3 className="loading__title">Preparing your Recipe</h3>
         </section>
     )
 }

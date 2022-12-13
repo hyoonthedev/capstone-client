@@ -1,13 +1,12 @@
-import './LandingPage.scss'
+import './LandingPage.scss';
 import { useState, useEffect } from 'react';
 
 import logoSvg from '../../assets/Images/Logo/logo.png';
 import LoginModal from '../../components/LoginModal/LoginModal';
 import SignUpModal from '../../components/SignUpModal/SignUpModal';
-import ProfilePageTest from '../ProfilePageTest';
 import { useNavigate } from 'react-router-dom'
 
-function LandingPage() {
+function LandingPage({ setloginSuccess, loginSuccess, loggedUserId }) {
     
     const navigate = useNavigate();
     
@@ -62,13 +61,14 @@ function LandingPage() {
             loginOpen={loginOpen}
             setLoginOpen={setLoginOpen}
             setSignUpOpen={setSignUpOpen}
+            setloginSuccess={setloginSuccess}
+            loginSuccess={loginSuccess}
             />
             <SignUpModal 
             signUpOpen={signUpOpen}
             setSignUpOpen={setSignUpOpen}
             setLoginOpen={setLoginOpen}
             />
-            <div onClick={()=>navigate('/ingredients')}>next</div>
         </>
     )
 }

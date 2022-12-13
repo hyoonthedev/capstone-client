@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 import closeIcon from '../../assets/Images/Icons/close-icon.svg';
 
-function LoginModal({ loginOpen, setLoginOpen, setSignUpOpen }) {
+function LoginModal({ loginOpen, setLoginOpen, setSignUpOpen, loginSuccess, setloginSuccess }) {
 
     const API_URL = process.env.REACT_APP_API_URL;
     const PORT = process.env.REACT_APP_PORT;
@@ -14,7 +14,6 @@ function LoginModal({ loginOpen, setLoginOpen, setSignUpOpen }) {
 
     const [emptyField, setEmptyField] = useState(false);
     const [wrongCred, setWrongCred] = useState(false);
-    const [loginSuccess, setloginSuccess] = useState(false);
 
 // Responses for login errors
     const loginResponse = () => {
@@ -40,9 +39,9 @@ function LoginModal({ loginOpen, setLoginOpen, setSignUpOpen }) {
         .then((response) => {
             sessionStorage.setItem('JWTtoken', response.data.token);
             setloginSuccess(true)
-            setTimeout(() => {
+            // setTimeout(() => {
                 navigate('/ingredients')
-            }, 3000)
+            // }, 3000)
         })
         .catch((err) => {
             if(err.response.data.token == null) { // Check if password correct from DB

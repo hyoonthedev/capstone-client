@@ -11,19 +11,13 @@ import Loading from "../../components/Loading/Loading";
 const API_URL = process.env.REACT_APP_API_URL;
 const PORT = process.env.REACT_APP_PORT;
 
-function RecipeSearchPage() {
+function RecipeSearchPage({ loggedUserId }) {
 
     const [pantryList, setPantryList] = useState(null);
     const [recipeList, setRecipeList] = useState(null);
+    const [favUpdate, setFavUpdate] = useState(false);
 
-// Set PantryList to query
-    const convertQuery = function(object) {
-        const array = []
-        for(let i=0; i<object.length; i++) {
-            array.push(object[i].ingredient_name)
-        } return array.join("%20")
-    }
-
+// Convert Object to String
     const convertText = function(object) {
         const array = []
         for(let i=0; i<object.length; i++) {
@@ -34,17 +28,16 @@ function RecipeSearchPage() {
 // GET pantry list
     useEffect(() => {
         axios
-            .get(`${API_URL}${PORT}/pantry`)
+            .get(`${API_URL}${PORT}/recipes/${loggedUserId}/search`)
             .then((response) => {
-               setPantryList(response.data)
-               return response.data
+                setRecipeList(response)
             })
-            .then((response) => {
-                const query = convertQuery(response)
+            .then(() => {
                 axios
-                    .post(`${API_URL}${PORT}/recipes/search`, {query})
+                    .get(`${API_URL}${PORT}/pantry/user/${loggedUserId}`)
                     .then((response) => {
-                        setRecipeList(response.data)
+                        setPantryList(response)
+                        setFavUpdate(false)
                     })
                     .catch((err) => {
                         console.log(err)
@@ -53,28 +46,28 @@ function RecipeSearchPage() {
             .catch((err) => {
                 console.log(err)
             })
-    },[])
+    },[favUpdate])
 
 // Catch if pantryList not loading
-    if(!pantryList) {
+    if(!pantryList || !recipeList) {
         return <Loading/>
     }
-    if(!recipeList) {
-        return <Loading/>
-    } 
-    if(recipeList.length === 0) {
+    if(recipeList.data.length === 0) {
         return <NoRecipe />
         }
-        
+
+        console.log(recipeList.data)
     return(
         // recipeList.map
         <section className="recipe-search">
             <Header/>
             <h2 className="recipe-search__title">Searching Recipes for:</h2>
-            <h2 className="recipe-search__span">{convertText(pantryList)}</h2>
+            <h2 className="recipe-search__span">{convertText(pantryList.data)}</h2>
             <div className="recipe-search__card-container">
                 <RecipeListCard
                 recipeList={recipeList}
+                loggedUserId={loggedUserId}
+                setFavUpdate={setFavUpdate}
                 />
             </div>
         </section>

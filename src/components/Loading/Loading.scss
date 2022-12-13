@@ -18,14 +18,9 @@
         border-radius: 30px;
     }
 
-    &__title {
-        font-size: 3rem;
+    &__main-title {
         color: $primary-green;
         font-family: Budidaya;
-    }
-
-    &__main-title {
-        @extend .loading__title;
         font-size: 5rem;
     }
 }

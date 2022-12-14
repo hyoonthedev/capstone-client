@@ -1,0 +1,38 @@
+@use '../../styles/partials/variables' as *;
+
+.ingredient-select {
+
+    &__veg-card {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 10rem;
+    }
+
+    &__veg-title {
+        color: $primary-green;
+        font-size: 2rem;
+        font-family: Budidaya;
+    }
+
+    &__veg-expiry-red {
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: invert(13%) sepia(76%) saturate(6916%) hue-rotate(0deg) brightness(94%) contrast(117%);
+        cursor: pointer;
+    }
+
+    &__veg-expiry-yellow {
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: invert(94%) sepia(93%) saturate(7500%) hue-rotate(359deg) brightness(104%) contrast(101%);
+        cursor: pointer;
+    }
+
+    &__veg-expiry-green {
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: invert(37%) sepia(14%) saturate(1455%) hue-rotate(89deg) brightness(92%) contrast(82%);
+        cursor: pointer;
+    }
+}

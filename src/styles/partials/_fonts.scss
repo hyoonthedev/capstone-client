@@ -1,0 +1,49 @@
+// Logo Font
+@font-face {
+    font-family: "Budidaya";
+    src: url("../../assets/Fonts/Alternative/budidaya.regular.woff2") format("woff2"),
+    url("../../assets/Fonts/budidaya.regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Budidaya";
+    src: url("../../assets/Fonts/Alternative/budidaya.italic.woff2") format("woff2"),
+    url("../../assets/Fonts/budidaya.italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+// Primary Font
+@font-face {
+    font-family: "DM Serif Display";
+    src: url("../../assets/Fonts/Alternative/DMSerifDisplay-Regular.woff2") format("woff2"),
+    url("../../assets/Fonts/DMSerifDisplay-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "DM Serif Display";
+    src: url("../../assets/Fonts/Alternative/DMSerifDisplay-Italic.woff2") format("woff2"),
+    url("../../assets/Fonts/DMSerifDisplay-Italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+
+// Secondary Font
+@font-face {
+    font-family: "Amatic SC";
+    src: url("../../assets/Fonts/Alternative/AmaticSC-Regular.woff2") format("woff2"),
+    url("../../assets/Fonts/AmaticSC-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Amatic SC";
+    src: url("../../assets/Fonts/Alternative/AmaticSC-Bold.woff2") format("woff2"),
+    url("../../assets/Fonts/AmaticSC-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: bold;
+}

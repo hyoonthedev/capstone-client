@@ -1,0 +1,112 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.signup-modal {
+    position: fixed;
+    background-color: white;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)scale(1);
+    padding: 0rem 0rem 2rem 3rem;
+    width: 100%;
+    height: 100%;
+
+        @include tablet {
+            width: 20rem;
+            top: 40%;
+            height: auto;
+        }
+
+// Overlay Background
+    &__overlay {
+        position: fixed;
+        transition: 200ms ease-in-out;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(19, 24, 44, 0.7);
+    }
+
+// Containers
+    &__close-container {
+        position: aboslute;
+        display: flex;
+        justify-content: flex-end;
+        color: white;
+        opacity: 0.3;
+        margin: 0.5rem;
+    }
+
+    &__input-container {
+        display: flex;      
+        flex-direction: column;
+        margin-right: 3rem;
+    }
+
+// Text and input
+    &__title {
+        margin: 1rem 0;
+    }
+
+    &__input-user, &__input-password, &__input-confirm-password {
+        margin: 0.5rem 0;
+        border: none;
+        border-bottom: 1px solid black;
+        padding-bottom: 0.5rem;
+
+        &:focus {
+            outline: none;
+            border-bottom: 2px solid $primary-green
+        }
+    }
+
+    &__input-error {
+        margin: 0.5rem 0;
+        border: none;
+        border-bottom: 2px solid red;
+        padding-bottom: 0.5rem;
+
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+
+// Buttons
+    &__submit {
+        margin: 1rem 0 0;
+        border: none;
+        color: white;
+        padding: 0.5rem 2rem;
+        background-color: $primary-green;
+        cursor: pointer;
+        
+        &:hover {
+            background-color: $landing-aqua;
+        }
+    }
+
+    &__close-button {
+        width: 1rem;
+        cursor: pointer;
+    }
+
+// Signup Message
+    &__error {
+        color: red;
+        font-size: 0.75rem;
+    }
+
+    &__hidden {
+        display: none;
+    }
+
+    &__success {
+        color: green;
+        font-size: 0.75rem;
+    }
+}

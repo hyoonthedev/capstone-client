@@ -1,0 +1,42 @@
+@use '../../styles/partials/variables' as *;
+
+.no-access {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/Images/Images/2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100rem;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    gap: 1rem;
+
+    &__title {
+        font-size: 3rem;
+        color: $primary-green;
+        font-family: Budidaya;
+        text-align: center;
+    }
+
+    &__content {
+        font-size: 1.5rem;
+        color: $primary-green;
+        font-family: Budidaya;
+        text-align: center;
+    }
+
+    &__nav {
+        background-color: $landing-aqua;
+        padding: 0.5rem 3rem;
+        border-radius: 20px;
+        color: $primary-green;
+        cursor: pointer;
+    }
+
+    &__icon {
+        margin-right: 1rem;
+    }
+}

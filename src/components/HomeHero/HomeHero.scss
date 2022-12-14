@@ -1,0 +1,53 @@
+@use '../../styles/partials/mixins' as *;
+
+.home-hero {
+    background-image: url('../../assets/Images/Images/test.jpg');
+    background-position: absolute;
+    background-size:cover;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+
+    &__title {
+        color: white;
+        font-size: 2.3rem;
+        z-index: 1;
+        text-align: center;
+    }
+
+    &__start {
+        color: white;
+        background-color: #376E4B;
+        padding: 0.5rem 1rem;
+        border-radius: 24px;
+        transition: padding 1.5s;
+        z-index: 1;
+
+        &:hover {
+            padding: 0.5rem 3rem;
+        }
+    }
+
+    &__overlay {
+        background-color: #376E4B;
+        width: 100%;
+        height: 50vh;
+        opacity: 0.3;
+        position: absolute;
+    }
+
+    &__seperate-text {
+        font-family: "Budidaya";
+        font-size: 4rem;
+        font-style: italic;
+        color: orangered;
+    }
+
+    &__container {
+        z-index: 1;
+    }
+}

@@ -60,7 +60,7 @@
 
         &:focus {
             outline: none;
-            border-bottom: 2px solid $primary-green;
+            border-bottom: 2px solid $primary-green
         }
     }
 
@@ -84,6 +84,10 @@
         padding: 0.5rem 2rem;
         background-color: $primary-green;
         cursor: pointer;
+        
+        &:hover {
+            background-color: $landing-aqua;
+        }
     }
 
     &__close-button {
@@ -94,6 +98,7 @@
 // Signup Message
     &__error {
         color: red;
+        font-size: 0.75rem;
     }
 
     &__hidden {
@@ -102,5 +107,6 @@
 
     &__success {
         color: green;
+        font-size: 0.75rem;
     }
 }

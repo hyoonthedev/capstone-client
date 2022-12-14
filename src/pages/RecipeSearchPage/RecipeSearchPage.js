@@ -11,11 +11,11 @@ import Loading from "../../components/Loading/Loading";
 const API_URL = process.env.REACT_APP_API_URL;
 const PORT = process.env.REACT_APP_PORT;
 
-function RecipeSearchPage({ loggedUserId }) {
+function RecipeSearchPage({ loggedUserId, favUpdate, setFavUpdate }) {
 
     const [pantryList, setPantryList] = useState(null);
     const [recipeList, setRecipeList] = useState(null);
-    const [favUpdate, setFavUpdate] = useState(false);
+    // const [favUpdate, setFavUpdate] = useState(false);
 
 // Convert Object to String
     const convertText = function(object) {
@@ -56,21 +56,21 @@ function RecipeSearchPage({ loggedUserId }) {
         return <NoRecipe />
         }
 
-        console.log(recipeList.data)
     return(
-        // recipeList.map
-        <section className="recipe-search">
+            <>
             <Header/>
-            <h2 className="recipe-search__title">Searching Recipes for:</h2>
-            <h2 className="recipe-search__span">{convertText(pantryList.data)}</h2>
-            <div className="recipe-search__card-container">
-                <RecipeListCard
-                recipeList={recipeList}
-                loggedUserId={loggedUserId}
-                setFavUpdate={setFavUpdate}
-                />
-            </div>
-        </section>
+                <section className="recipe-search">
+                    <h2 className="recipe-search__title">Searching Recipes for:</h2>
+                    <h2 className="recipe-search__span">{convertText(pantryList.data)}</h2>
+                    <div className="recipe-search__card-container">
+                        <RecipeListCard
+                        recipeList={recipeList}
+                        loggedUserId={loggedUserId}
+                        setFavUpdate={setFavUpdate}
+                        />
+                    </div>
+                </section>
+            </>
     )
 }
 

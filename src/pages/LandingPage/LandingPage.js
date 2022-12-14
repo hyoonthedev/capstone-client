@@ -1,7 +1,6 @@
 import './LandingPage.scss';
 import { useState, useEffect } from 'react';
 
-import logoSvg from '../../assets/Images/Logo/logo.png';
 import LoginModal from '../../components/LoginModal/LoginModal';
 import SignUpModal from '../../components/SignUpModal/SignUpModal';
 import { useNavigate } from 'react-router-dom'
@@ -45,7 +44,9 @@ function LandingPage({ setloginSuccess, loginSuccess, loggedUserId }) {
             <section className="landing-page">
                 <div className="landing-page__logo-container">
                     <h3 className="landing-page__logo-title">panTree</h3>
-                    <img className="landing-page__logo-img"src={logoSvg} alt="logo leaf"/>
+                    <span className="landing-page__logo-img">
+                        <i className="fa-sharp fa-solid fa-leaf"></i>
+                    </span>
                 </div>
                 <div className="landing-page__hero-container">
                     <div className="landing-page__hero-text-container">

@@ -26,7 +26,7 @@ function SignUpModal({ signUpOpen, setSignUpOpen, setLoginOpen }) {
         } if(userInUse) {
             return "The Username is already in use"
         } if(signUpSuccess) {
-            return "Successful Signup! Redirecting to Login ..."
+            return "Successful Signup! Redirecting to Login."
         } else {
             return;
     }};
@@ -42,6 +42,15 @@ const handleReset = () => {
     setPasswordLength(false)
     setUserInUse(false)
     setEmptyField(false)
+}
+
+// On close modal, reset all fields
+const handleClose = () => {
+    setNoMatch(false)
+    setPasswordLength(false)
+    setUserInUse(false)
+    setEmptyField(false)
+    setSignUpOpen(false)
 }
 
 // Handle onSubmit, post to DB
@@ -64,9 +73,10 @@ const handleReset = () => {
         .then((_response) => {
             setSignUpSuccess(true)
             setTimeout(() => {
+                setSignUpSuccess(false)
                 setSignUpOpen(false)
                 setLoginOpen(true)
-            }, 3000)
+            }, 2000)
         })
         .catch((err) => {
             if(err.response.data === "Username already in use, please choose another"){ // Validate username in use
@@ -80,7 +90,7 @@ const handleReset = () => {
         <>
             <div className="signup-modal">
                 <div className="signup-modal__close-container">
-                    <img onClick={() => setSignUpOpen(false)} className="signup-modal__close-button"src={closeIcon} alt="close icon"/>
+                    <img onClick={() => handleClose()} className="signup-modal__close-button"src={closeIcon} alt="close icon"/>
                 </div>
                 <h2 className="signup-modal__title">Sign Up</h2>
                 <form onSubmit={handleSignUp} className="signup-modal__input-container">

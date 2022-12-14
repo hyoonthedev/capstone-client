@@ -23,7 +23,7 @@ function VegetableCategory({ ingredientsList, dateDifference, handleClick, handl
                         <img onClick={() => handleClick(vegetable.id)} className={dateDifference(vegetable.expiry) === "red" ? "ingredient-list__vegetable-expiry-red" : dateDifference(vegetable.expiry) === "yellow" ? "ingredient-list__vegetable-expiry-yellow" : "ingredient-list__vegetable-expiry-green"} src={leafIcon} alt="expiry indicator"/>
                         <h4 className="ingredient-list__vegetable-title">{vegetable.ingredient_name}</h4>
                     </div>
-                    <img className="ingredient-list__vegetable-delete" onClick={() => handleDelete(vegetable.id)} src={deleteIcon} alt="delete icon"/>
+                    <i onClick={() => handleDelete(vegetable.id)} src={deleteIcon} className="fa-solid fa-trash-can ingredient-list__vegetable-delete"></i>
                 </article>
             )
         })

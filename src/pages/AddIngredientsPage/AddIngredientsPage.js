@@ -6,7 +6,6 @@ import Header from '../../components/Header/Header';
 import IngredientsList from '../../components/IngredientsList/IngredientsList';
 import SelectedIngredients from '../../components/SelectedIngredients/SelectedIngredients';
 import Loading from '../../components/Loading/Loading';
-import popCat from '../../assets/Images/Images/pop-cat.png';
 
 const API_URL = process.env.REACT_APP_API_URL;
 const PORT = process.env.REACT_APP_PORT;
@@ -16,6 +15,7 @@ function AddIngredientsPage({ loggedUserId }) {
     const [ingredientsList, setIngredientsList] = useState(null);
     const [pantryList, setPantryList] = useState(null);
     const [submitState, setSubmitState] = useState(false);
+    const [formError, setFormError] = useState(false);
 
 // GET current ingredients list
     useEffect(() => {
@@ -24,7 +24,6 @@ function AddIngredientsPage({ loggedUserId }) {
             .then((response) => {
                 setIngredientsList(response.data)
                 setSubmitState(false)
-                console.log(`${loggedUserId} in get ingredient`)
             })
             .catch((err) => {
                 console.log(err)
@@ -46,14 +45,19 @@ function AddIngredientsPage({ loggedUserId }) {
     const handleFormSubmit = (event) => {
     event.preventDefault();
     setSubmitState(false);
+    
+    const lowerCase = (event.target[0].value).toLowerCase();
 
     const newIngredient = {
-        ingredient_name: event.target[0].value,
+        ingredient_name: lowerCase,
         expiry: event.target[1].value,
         category: event.target[2].value,
         user_id: loggedUserId
     };
 
+    if(!event.target[0].value || !event.target[1].value || event.target[2].value === "#") {
+        return setFormError(true)
+    }
     axios
         .post(`${API_URL}${PORT}/ingredients/user/${loggedUserId}`, newIngredient)
         .then((_response) => {
@@ -61,6 +65,7 @@ function AddIngredientsPage({ loggedUserId }) {
             event.target[1].value = ""
             event.target[2].value = "#"
             setSubmitState(true);
+            setFormError(false)
         })
         .catch((err) => {
             console.log(`An error occured: ${err}`)
@@ -101,43 +106,48 @@ const dateDifference = function(timestamp) {
 
 
     return(
-        <section className="ingredients">
+        <>
             <Header />
-            <div className="ingredients__container">
-                <form onSubmit={handleFormSubmit} className="ingredients__add-container">
-                    <label className="ingredients__add-title">Ingredient Name</label>
-                    <input className="ingredients__add-input-name" type="text" placeholder="Enter Ingredient"></input>
-                    <label className="ingredients__add-title">Date Purchased</label>
-                    <input className="ingredients-add__input-timestamp" type="date" placeholder="YYYY-MM-DD"></input>
-                    <label className="ingredients__add-title">Food Category</label>
-                    <select>
-                        <option value="#">Select a Category</option>
-                        <option value="meat">Meat</option>
-                        <option value="vegetables">Vegetable</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <button className="ingredients__add-submit" type="submit">Submit</button>
-                </form>
-                <div className="ingredients__list">
-                    <IngredientsList
-                    ingredientsList={ingredientsList}
-                    API_URL={API_URL}
-                    PORT={PORT}
-                    setSubmitState={setSubmitState}
-                    dateDifference={dateDifference}
-                    handleDelete={handleDelete}
-                    />
-                    <SelectedIngredients 
-                    pantryList={pantryList}
-                    API_URL={API_URL}
-                    PORT={PORT}
-                    dateDifference={dateDifference}
-                    setSubmitState={setSubmitState}
-                    />
+            <section className="ingredients">
+                <div className="ingredients__container">
+                    <div>   
+                        <h2 className="ingredients__add-main-title">Add Ingredients</h2>
+                        <form onSubmit={handleFormSubmit} className="ingredients__add-container">
+                            <label className="ingredients__add-title">Ingredient Name</label>
+                            <input onClick={() => setFormError(false)} className="ingredients__add-input-name" type="text" placeholder="Enter Ingredient"></input>
+                            <label className="ingredients__add-title">Date Purchased</label>
+                            <input onClick={() => setFormError(false)} className="ingredients__add-input-timestamp" type="date" placeholder="YYYY-MM-DD"></input>
+                            <label className="ingredients__add-title">Food Category</label>
+                            <select onClick={() => setFormError(false)} className="ingredients__add-input-select">
+                                <option value="#">Select a Category</option>
+                                <option value="meat">Meat</option>
+                                <option value="vegetables">Vegetable</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <p className={formError === false ? "ingredients__add-error-msg-hidden" : "ingredients__add-error-msg"}>Missing Form Value</p>
+                            <button className="ingredients__add-submit" type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <div className="ingredients__list">
+                        <IngredientsList
+                        ingredientsList={ingredientsList}
+                        API_URL={API_URL}
+                        PORT={PORT}
+                        setSubmitState={setSubmitState}
+                        dateDifference={dateDifference}
+                        handleDelete={handleDelete}
+                        />
+                        <SelectedIngredients 
+                        pantryList={pantryList}
+                        API_URL={API_URL}
+                        PORT={PORT}
+                        dateDifference={dateDifference}
+                        setSubmitState={setSubmitState}
+                        />
+                    </div>
                 </div>
-            </div>
-            <img className="cat" src={popCat} alt="pop cat"/>
-        </section>
+            </section>
+        </>
     )
 }
 

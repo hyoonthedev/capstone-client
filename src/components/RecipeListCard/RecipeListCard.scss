@@ -1,8 +1,10 @@
+@use '../../styles/partials/variables' as *;
+
 .recipe-list {
     &__card-container {
         width: 30rem;
         max-width: 30rem;
-        background-color: green;
+        background-color: RGBA(94, 132, 137);
         margin: 1rem;
         border-radius: 15px;
         text-align: center;
@@ -14,8 +16,8 @@
         box-shadow: (5px 5px 5px RGBA(0,0.5,0.5,0.5));
 
         &:hover .recipe-list__image {
-            height: 23rem;
-            min-height: 23rem;
+            height: 26rem;
+            min-height: 26rem;
             border-bottom-left-radius: 0px;
             border-bottom-right-radius: 0px;
         }
@@ -29,13 +31,40 @@
         overflow: hidden;
         transition: 2s;
         border-radius: 15px;
+        cursor: pointer;
+    }
+
+    &__icon {
+        margin-right: 1rem;
+    }
+}
+
+.heart-black {
+    color: black;
+    position: absolute;
+    text-align: right;
+    margin: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+
+    &:hover {
+        color: red;
     }
 }
 
 .heart-red {
+    @extend .heart-black;
     color: red;
+    animation: heart-bounce 2s;
+
+    &:hover {
+        color: black;
+    }
 }
 
-.heart-black {
-    color: black
+@keyframes heart-bounce {
+    0% {font-size: 2rem}
+    30% {font-size: 2.5rem}
+    100% {font-size: 2rem}
+    
 }

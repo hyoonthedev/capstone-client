@@ -5,11 +5,18 @@
     
     @include desktop {
         display: flex;
+        flex-direction: column;
     }
 
     &__meat {
         background-color: #f9906f;
         padding: 1rem;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+
+            @include tablet {
+                min-width: 20rem;
+            }
     }
 
     &__veg {
@@ -20,10 +27,12 @@
     &__other {
         background-color: #fea938;
         padding: 1rem;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
 
     &__title {
-        color: $primary-green;
+        color: $primary-yellow;
         font-size: 5rem;
         font-family: Budidaya;
         text-transform: uppercase;

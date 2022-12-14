@@ -1,11 +1,11 @@
 function RecipeDetailsIngredients({ selectedRecipe }) {
 
-    const ingredientList = selectedRecipe.ingredients
-
+    const { ingredients_line } = selectedRecipe[0];
+    
     return(
-        ingredientList.map((ingredient, index) => {
+        ingredients_line.map((ingredient) => {
             return(
-                <p key={index}>{ingredient}</p>
+                <p className="recipe-page__content" key={ingredient.index}>{ingredient}</p>
             )
         })
     )

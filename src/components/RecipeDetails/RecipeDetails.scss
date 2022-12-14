@@ -1,41 +1,123 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
 .recipe-page {
 
     &__content-container {
         display: flex;
-        background-color: orange;
-        justify-content: space-evenly;
-        width: 100%;
+        flex-direction: column;
+        background-color: $primary-yellow;
+        justify-content: center;
+        align-items: center;
         gap: 1rem;
-        margin-top: 1rem;
+        margin: 1rem 3rem;
         padding: 1rem;
         border-radius: 20px;
+        max-width: 20rem;
     }
 
     &__image {
        width: 100%;
-       height: 100%;
        object-fit: contain;
+       max-width: 20rem;
     }
 
     &__main-container {
-        // display: flex;
+        display: flex;
         flex-direction: column;
         align-items: center;
+
+        @include tablet {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+        }
     }
 
     &__title {
         font-family: Budidaya;
         font-size: 3rem;
-        color: green;
+        color: $primary-green;
+        text-align: center;
+        
     }
 
     &__main-title {
         font-family: Budidaya;
-        font-size: 5rem;
-        color: green;
+        font-size: 3rem;
+        color: $primary-green;
+        text-align: center;
+        margin: 1rem 0;
     }
 
     &__content {
         text-transform: capitalize;
+        color: #393e46;
+    }
+
+    &__complete {
+        background-color: $landing-aqua;
+        border-radius: 15px;
+        padding: 0.5rem 3rem;
+        text-align: center;
+        color: $primary-green;
+        max-width: 20rem;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: $primary-yellow;
+        }
+    }
+
+    &__modal {
+        position: fixed;
+        background-color: white;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)scale(1);
+        padding: 0 0.5rem 2rem 2rem;
+        min-width: auto;
+        max-width: 20rem;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    &__modal-overlay {
+        position: fixed;
+        transition: 200ms ease-in-out;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(19, 24, 44, 0.7);
+    }
+
+    &__modal-title {
+        margin-bottom: 1rem;
+    }
+    
+    &__modal-content {
+        color: $primary-green;
+        margin-bottom: 1rem;
+    }
+
+    &__modal-confirm {
+        background-color: $landing-aqua;
+        max-width: 6rem;
+        text-align: center;
+        color: white;
+        border-radius: 20px;
+        padding: 0.5rem 0.5rem;
+    }
+
+    &__modal-hidden {
+        display: none;
+    }
+
+    &__modal-display {
+        display: block;
     }
 }

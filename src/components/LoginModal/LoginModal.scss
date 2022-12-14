@@ -66,14 +66,16 @@
 
     &__error {
         color: red;
+        font-size: 0.75rem;
     }
 
     &__hidden {
         display: none;
     }
 
-    &__succes {
+    &__success {
         color: green;
+        font-size: 0.75rem;
     }
 
 // Button
@@ -84,6 +86,10 @@
         padding: 0.5rem 2rem;
         background-color: $primary-green;
         cursor: pointer;
+
+        &:hover {
+            background-color: $landing-aqua;
+        }
     }
 
     &__close-button {
@@ -100,5 +106,9 @@
     &__create {
         color: $primary-green;
         cursor: pointer;
+
+        &:hover {
+            color: $primary-yellow;
+        }
     }
 }

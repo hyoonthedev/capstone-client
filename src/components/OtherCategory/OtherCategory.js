@@ -22,7 +22,7 @@ function OtherCategory({ ingredientsList, dateDifference, handleClick, handleDel
                         <img onClick={() => handleClick(other.id)} className={dateDifference(other.expiry) === "red" ? "ingredient-list__other-expiry-red" : dateDifference(other.expiry) === "yellow" ? "ingredient-list__other-expiry-yellow" : "ingredient-list__other-expiry-green"} src={leafIcon} alt="expiry indicator"/>
                         <h4 className="ingredient-list__other-title">{other.ingredient_name}</h4>
                     </div>
-                    <img className="ingredient-list__other-delete" onClick={() => handleDelete(other.id)} src={deleteIcon} alt="delete icon"/>
+                    <i onClick={() => handleDelete(other.id)} className="fa-solid fa-trash-can ingredient-list__other-delete"></i>
                 </article>
             )
         })

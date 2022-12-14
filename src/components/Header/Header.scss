@@ -1,11 +1,15 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .header {
+    background-color: $landing-aqua;
+    padding: 0 2rem;
+
 // Logo
     &__logo-title {
         font-family: Budidaya;
         font-size: 1.3rem;
-        color: white;
+        color: $primary-green;
         margin-right: 0.3rem;
         cursor: pointer;
     }
@@ -22,6 +26,39 @@
         display: flex;
         align-items: center;
         padding: 1rem;
-        background-color: RGBA(55,110,75,0.9);
+        color: $primary-green;
+    }
+
+    &__user-container {
+        display: flex;
+        gap: 1rem;
+        color: $primary-green;
+    }
+
+    &__icon-container {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__icon-title {
+        display: none;
+        cursor: pointer;
+
+        @include tablet {
+            display: block;
+        }
+    }
+
+    &__main-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1280px;
+        margin: auto;
+    }
+
+    &__logo {
+        cursor: pointer;
     }
 }

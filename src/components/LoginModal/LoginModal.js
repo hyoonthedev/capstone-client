@@ -22,7 +22,7 @@ function LoginModal({ loginOpen, setLoginOpen, setSignUpOpen, loginSuccess, setl
         } if(wrongCred) {
             return "Wrong credentials, invalid username or password"
         }if(loginSuccess) {
-            return "Successful Login!, redirecting to main page..."
+            return "Successful Login! Please wait ..."
         }
     };
 
@@ -39,9 +39,9 @@ function LoginModal({ loginOpen, setLoginOpen, setSignUpOpen, loginSuccess, setl
         .then((response) => {
             sessionStorage.setItem('JWTtoken', response.data.token);
             setloginSuccess(true)
-            // setTimeout(() => {
+            setTimeout(() => {
                 navigate('/ingredients')
-            // }, 3000)
+            }, 2000)
         })
         .catch((err) => {
             if(err.response.data.token == null) { // Check if password correct from DB

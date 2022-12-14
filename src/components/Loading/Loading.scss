@@ -1,9 +1,10 @@
 @use '../../styles/partials/variables' as *;
 
 .loading {
-    background-image: url('../../assets/Images/Images/background2.jpg');
-    background-size: 100rem;
-    background-repeat: repeat;
+    background-image: url('../../assets/Images/Images/3.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 90rem;
     width: 100%;
     min-height: 100vh;
     height: 100%;
@@ -11,7 +12,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-position: 10px;
 
     &__image {
         width: 30rem;

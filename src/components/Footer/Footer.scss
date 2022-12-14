@@ -1,0 +1,42 @@
+@use '../../styles/partials/variables' as *;
+
+.footer {
+    color: $primary-green;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: $landing-aqua;
+    gap: 1rem;
+    height: 3.5rem;
+
+// Icons
+    &__linkedin {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        &:hover {
+            color: $linkedin-blue;
+        }
+    }
+
+    &__github {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        :hover {
+            color: black;
+        }
+    }
+
+    &__text {
+        font-size: 0.8rem;
+    }
+
+    &__text-hidden {
+        font-size: 0.8rem;
+        display: none;
+    }
+}

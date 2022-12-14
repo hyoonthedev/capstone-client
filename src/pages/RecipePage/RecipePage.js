@@ -7,7 +7,7 @@ import RecipeDetails from '../../components/RecipeDetails/RecipeDetails';
 import Loading from '../../components/Loading/Loading';
 import './RecipePage.scss';
 
-function RecipePage() {
+function RecipePage({ loggedUserId }) {
 
     const params = useParams()
     const API_URL = process.env.REACT_APP_API_URL;
@@ -35,6 +35,7 @@ function RecipePage() {
                 <Header />
                 <RecipeDetails 
                 selectedRecipe={selectedRecipe}
+                loggedUserId={loggedUserId}
                 />
             </section>
             )

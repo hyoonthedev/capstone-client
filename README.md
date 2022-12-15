@@ -1,70 +1,77 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# panTree
 
-## Available Scripts
+panTree looks to limit household foodwaste by generating recipes based on ingredients you have in your pantry and fridge.
+You can input your ingredients into panTree and be shown visual indications how long a product has been in your pantry and fridge allowing you to create meals with them before they go bad.
+Not only does panTree limit the amount of food being wasted, you will also be inspired to try a wide selection of recipes from different cuisines.
+Find anything you like? Save it into your favourites, and re-use the recipe!
 
-In the project directory, you can run:
+# Setting Up
 
-### `npm start`
+To setup, please make sure to download both the server and client side.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#Server
+- initialize node modules with $npm i
+- create a .env file following the .envsample keys
+    - PORT = (Port Number)
+    - DB = (DB Connection)
+    - secretKey (Generate a random uuid)
+- scripts are already created for you, run the following:
+    - $npm run migrate (generates tables)
+    - $npm run seed (seeds recipe table)
+- start backend with $npm run dev
+- your backend should be running when you see "Connected to 'PORT'"
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#Client
+- initialize node modules with $npm i
+- create a .env file following the .envsample keys
+    - REACT_APP_API_URL = (URL of server)
+    - REACT_APP_PORT = (Port Number from server)
+- start client side with $npm start
 
-### `npm test`
+# How To Use 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#Signup
+- You will need to signup to access the pages
+- Click get started to open the sign up menu
+    - enter username, password and confirm password
+    - username must not already exist
+    - password MUST be 8 characters long
+    - password and confirm password must match
+#Login
+- After signing up you will be directed to login menu
+    - enter username and password
+    - username and password must be signed up
+#Ingredients
+- After logging in you will be directed to the ingredients pages
+    - enter your ingredients
+        - name of ingredient
+        - date of purchase
+        - category
+    - you must fill all values in order to submit
+- The ingredient will appear in panTree
+    - clicking the leaf will select the ingredient to generate a recipe
+    - clicking the trash can will remove it from the list
+    - the leaf will appear green for 0-3 days, yellow for 3-7 days, and red for >7 days
+- After selecting ingredients, click Make a recipe
+    - If there are too many ingredients/no ingredients no recipes will show up
+#Recipe list
+- After creating recipes a list of recipes will appear
+- Hovering over the card will show the recipe name and cuisines
+- Clicking the heart will add it to your favourites
+- Clicking the card will go to the Recipe Details
+#Recipe Details
+- This will provide the full details of the recipe
+- This includes general details, ingredients and instructions
+- After making the recipe, you can click the complete button to confirm the use of your selected ingredients, this will clear your selected ingredients list
+#Profile
+- Your profile page will include a user card (TBD)
+- and a list of your favourited recipes
+    - you can unfavourite these recipes, and it will be updated
+#Navigation
+- Navigation includes Pantry, Profile and Logout
+    - Pantry navigates to Ingredients page
+    - Profile goes to your profile page
+    - Log out will log user out and go to the main page
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

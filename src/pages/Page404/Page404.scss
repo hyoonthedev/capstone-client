@@ -1,0 +1,41 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.error-page {
+    background-image: url('../../assets/Images/Images/2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__image {
+        border-radius: 50%;
+        width: 20rem;
+
+        @include tablet {
+            width: 40rem;
+        }
+    }
+
+    &__title {
+        font-size: 3rem;
+        color: $primary-green;
+
+        @include tablet {
+            font-size: 5rem;
+        }
+    }
+
+    &__nav {
+        background-color: $primary-yellow;
+        padding: 0.5rem 3rem;
+        color: white;
+        border-radius: 20px;
+    }
+}

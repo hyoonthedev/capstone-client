@@ -12,6 +12,7 @@ import NeedLoginSignUp from './pages/NeedLoginSignUp/NeedLoginSignUp';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Loading from './components/Loading/Loading';
 import Footer from './components/Footer/Footer';
+import Page404 from './pages/Page404/Page404';
 
 function App() {
 
@@ -72,8 +73,9 @@ if(!loginSuccess){
               loggedUserId={loggedUserId}
               />} 
       />
-      <Route path="*" element={<NeedLoginSignUp/>}/> 
+      <Route path="*" element={<NeedLoginSignUp/>}/>
     </Routes>
+    <Footer/>
   </BrowserRouter>
 )}
 
@@ -113,6 +115,7 @@ if(!loggedUserId){
           favUpdate={favUpdate}
           />}
         />
+        <Route path="*" element={<Page404/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

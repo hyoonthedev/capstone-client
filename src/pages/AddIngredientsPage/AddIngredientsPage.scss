@@ -2,10 +2,10 @@
 @use '../../styles/partials/variables' as *;
 
 .ingredients {
-    background-image: url('../../assets/Images/Images/1.jpg');
+    background-image: url('../../assets/Images/Images/2.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100rem;
+    background-size: cover;
     width: 100%;
     min-height: 100vh;
     height: 100%;

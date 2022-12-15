@@ -4,7 +4,7 @@
     background-image: url('../../assets/Images/Images/2.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100rem;
+    background-size: cover;
     width: 100%;
     min-height: 100vh;
     height: 100%;
@@ -14,7 +14,7 @@
         flex-wrap: wrap;
         gap: 1rem;
         justify-content: center;
-        margin-bottom: 5rem;
+        padding-bottom: 5rem;
     }
 
     &__title {

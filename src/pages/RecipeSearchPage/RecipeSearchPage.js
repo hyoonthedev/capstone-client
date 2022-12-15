@@ -15,7 +15,6 @@ function RecipeSearchPage({ loggedUserId, favUpdate, setFavUpdate }) {
 
     const [pantryList, setPantryList] = useState(null);
     const [recipeList, setRecipeList] = useState(null);
-    // const [favUpdate, setFavUpdate] = useState(false);
 
 // Convert Object to String
     const convertText = function(object) {
